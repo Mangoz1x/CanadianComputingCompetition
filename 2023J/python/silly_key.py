@@ -8,8 +8,6 @@ corresponding_key = ''
 
 pressed_keys = str(input())
 displayed_keys = str(input())
-
-last_key_was_quiet = False
 shifted = 0
 
 def charat(cstring, index, default=None): 
@@ -30,19 +28,15 @@ for x in range(len(pressed_keys)):
     next_displayed_key = charat(displayed_keys, x+1, '')
 
     if pressed_key == quiet_key:
-        shifted += 1
-        
-    if (next_pressed_key == displayed_key) and quiet_key == '-':
+        shifted += 1  
+    elif (next_pressed_key == displayed_key) and quiet_key == '-':
         quiet_key = pressed_key
-        last_key_was_quiet = True
         shifted += 1
         continue
-    elif (pressed_key != displayed_key) and (next_pressed_key == next_displayed_key) and not last_key_was_quiet:
+    elif (pressed_key != displayed_key):
         silly_key = displayed_key
         corresponding_key = pressed_key 
     
-    last_key_was_quiet = False
-
 print(f'{corresponding_key} {silly_key}')
 print(quiet_key)
 
