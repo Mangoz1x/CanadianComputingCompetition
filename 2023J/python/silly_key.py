@@ -23,9 +23,7 @@ def charat(cstring, index, default=None):
 for x in range(len(pressed_keys)):
     pressed_key = charat(pressed_keys, x, '')
     displayed_key = charat(displayed_keys, x-shifted, '')
-
     next_pressed_key = charat(pressed_keys, x+1, '')
-    next_displayed_key = charat(displayed_keys, x+1, '')
 
     if pressed_key == quiet_key:
         shifted += 1  
